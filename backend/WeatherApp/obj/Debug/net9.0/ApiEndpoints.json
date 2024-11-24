@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "WeatherController",
+    "Method": "GetForecasts",
+    "RelativePath": "api/weather/forecasts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "url",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeatherController",
+    "Method": "GetObservations",
+    "RelativePath": "api/weather/observations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "url",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

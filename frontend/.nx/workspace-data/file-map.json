@@ -1,0 +1,319 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.1.3",
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview"
+      }
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "name": "@nx/cypress/plugin",
+      "options": {
+        "targetName": "e2e",
+        "openTargetName": "open-cypress",
+        "componentTestingTargetName": "component-test",
+        "ciTargetName": "e2e-ci"
+      }
+    },
+    {
+      "name": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [],
+    "projectFileMap": {
+      "frontend": [
+        {
+          "file": ".babelrc",
+          "hash": "2933256737198428138"
+        },
+        {
+          "file": ".github/workflows/ci.yml",
+          "hash": "3516381501909661267"
+        },
+        {
+          "file": ".gitignore",
+          "hash": "17107242987988535020"
+        },
+        {
+          "file": ".prettierignore",
+          "hash": "14688272390704683536"
+        },
+        {
+          "file": ".prettierrc",
+          "hash": "16267754514737964994"
+        },
+        {
+          "file": ".vscode/extensions.json",
+          "hash": "4637156562308165301"
+        },
+        {
+          "file": "README.md",
+          "hash": "2169886003014164902"
+        },
+        {
+          "file": "eslint.config.js",
+          "hash": "18136715864555996736",
+          "deps": [
+            "npm:@nx/eslint-plugin"
+          ]
+        },
+        {
+          "file": "jest.config.ts",
+          "hash": "6504450107022373059"
+        },
+        {
+          "file": "jest.preset.js",
+          "hash": "9430166341120122740",
+          "deps": [
+            "npm:@nx/jest"
+          ]
+        },
+        {
+          "file": "nx.json",
+          "hash": "16452554568689899598"
+        },
+        {
+          "file": "package.json",
+          "hash": "10014771370767813637",
+          "deps": [
+            "npm:@babel/core",
+            "npm:@babel/preset-react",
+            "npm:@eslint/js",
+            "npm:@nx/cypress",
+            "npm:@nx/eslint",
+            "npm:@nx/eslint-plugin",
+            "npm:@nx/jest",
+            "npm:@nx/js",
+            "npm:@nx/react",
+            "npm:@nx/web",
+            "npm:@nx/webpack",
+            "npm:@nx/workspace",
+            "npm:@pmmmwh/react-refresh-webpack-plugin",
+            "npm:@svgr/webpack",
+            "npm:@swc-node/register",
+            "npm:@swc/cli",
+            "npm:@swc/core",
+            "npm:@swc/helpers",
+            "npm:@testing-library/react",
+            "npm:@types/jest",
+            "npm:@types/node",
+            "npm:@types/react",
+            "npm:@types/react-dom",
+            "npm:@types/react-is",
+            "npm:@types/styled-components",
+            "npm:babel-jest",
+            "npm:babel-plugin-styled-components",
+            "npm:cypress",
+            "npm:eslint",
+            "npm:eslint-config-prettier",
+            "npm:eslint-plugin-cypress",
+            "npm:eslint-plugin-import",
+            "npm:eslint-plugin-jsx-a11y",
+            "npm:eslint-plugin-react",
+            "npm:eslint-plugin-react-hooks",
+            "npm:jest",
+            "npm:jest-environment-jsdom",
+            "npm:nx",
+            "npm:prettier",
+            "npm:react-refresh",
+            "npm:ts-jest",
+            "npm:ts-node",
+            "npm:tslib",
+            "npm:typescript",
+            "npm:typescript-eslint",
+            "npm:webpack-cli",
+            "npm:@apollo/client",
+            "npm:@emotion/react",
+            "npm:@emotion/styled",
+            "npm:@mui/material",
+            "npm:graphql",
+            "npm:react",
+            "npm:react-dom",
+            "npm:react-is",
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "project.json",
+          "hash": "2981724191001094842"
+        },
+        {
+          "file": "public/params.json",
+          "hash": "17932635561699774769"
+        },
+        {
+          "file": "public/stations.json",
+          "hash": "11810899679335948887"
+        },
+        {
+          "file": "src/app/apollo/client.tsx",
+          "hash": "9682974789119390063",
+          "deps": [
+            "npm:react",
+            "npm:@apollo/client"
+          ]
+        },
+        {
+          "file": "src/app/app.spec.tsx",
+          "hash": "18303175862115286083",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "src/app/app.tsx",
+          "hash": "3656997154600478921",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "src/app/components/Forecasts.tsx",
+          "hash": "17125199864366602516",
+          "deps": [
+            "npm:react",
+            "npm:@mui/material",
+            "npm:@apollo/client"
+          ]
+        },
+        {
+          "file": "src/app/components/WeatherCard.tsx",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/components/WeatherView.module.css",
+          "hash": "2481781715177924258"
+        },
+        {
+          "file": "src/app/components/WeatherView.tsx",
+          "hash": "7723135968105575855",
+          "deps": [
+            "npm:@mui/material"
+          ]
+        },
+        {
+          "file": "src/app/graphql/inputs/forecasts.input.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/graphql/queries/getForecasts.ts",
+          "hash": "10722834506564290033",
+          "deps": [
+            "npm:@apollo/client"
+          ]
+        },
+        {
+          "file": "src/app/graphql/queries/getObservations.ts",
+          "hash": "16572518132055445980",
+          "deps": [
+            "npm:@apollo/client"
+          ]
+        },
+        {
+          "file": "src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "src/index.html",
+          "hash": "9818821610231133437"
+        },
+        {
+          "file": "src/main.tsx",
+          "hash": "4731961929376199421",
+          "deps": [
+            "npm:react",
+            "npm:react-dom"
+          ]
+        },
+        {
+          "file": "tsconfig.app.json",
+          "hash": "10633172385801628253"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "10776750329763242930"
+        },
+        {
+          "file": "tsconfig.spec.json",
+          "hash": "10598618129870452834"
+        },
+        {
+          "file": "webpack.config.js",
+          "hash": "11640789988127147801",
+          "deps": [
+            "npm:@nx/webpack",
+            "npm:@nx/react"
+          ]
+        },
+        {
+          "file": "yarn.lock",
+          "hash": "15293286486111186145"
+        }
+      ],
+      "e2e": [
+        {
+          "file": "e2e/cypress.config.ts",
+          "hash": "13165714828872738710",
+          "deps": [
+            "npm:@nx/cypress",
+            "npm:cypress"
+          ]
+        },
+        {
+          "file": "e2e/eslint.config.js",
+          "hash": "7093554391832217948",
+          "deps": [
+            "npm:eslint-plugin-cypress"
+          ]
+        },
+        {
+          "file": "e2e/project.json",
+          "hash": "5157310314924380978"
+        },
+        {
+          "file": "e2e/src/e2e/app.cy.ts",
+          "hash": "2588220647650846806"
+        },
+        {
+          "file": "e2e/src/fixtures/example.json",
+          "hash": "11785586596216172004"
+        },
+        {
+          "file": "e2e/src/support/app.po.ts",
+          "hash": "11157016311132186162"
+        },
+        {
+          "file": "e2e/src/support/commands.ts",
+          "hash": "6408592624158157338"
+        },
+        {
+          "file": "e2e/src/support/e2e.ts",
+          "hash": "1054106023200826784"
+        },
+        {
+          "file": "e2e/tsconfig.json",
+          "hash": "14125977923036463922"
+        }
+      ]
+    }
+  }
+}
