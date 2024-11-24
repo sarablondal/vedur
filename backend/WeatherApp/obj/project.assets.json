@@ -2918,11 +2918,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\Verkefni\\vedur\\backend\\WeatherApp\\WeatherApp.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\Verkefni\\vedur\\vedur\\vedur\\backend\\WeatherApp\\WeatherApp.csproj",
       "projectName": "WeatherApp",
-      "projectPath": "C:\\Users\\Lenovo\\Desktop\\Verkefni\\vedur\\backend\\WeatherApp\\WeatherApp.csproj",
+      "projectPath": "C:\\Users\\Lenovo\\Desktop\\Verkefni\\vedur\\vedur\\vedur\\backend\\WeatherApp\\WeatherApp.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lenovo\\Desktop\\Verkefni\\vedur\\backend\\WeatherApp\\obj\\",
+      "outputPath": "C:\\Users\\Lenovo\\Desktop\\Verkefni\\vedur\\vedur\\vedur\\backend\\WeatherApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
