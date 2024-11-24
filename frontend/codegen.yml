@@ -1,0 +1,10 @@
+schema: "http://localhost:5231/graphql/" # Replace with your actual GraphQL endpoint
+documents: "src/app/graphql/queries/*.ts" # Adjust the path to your frontend documents
+generates:
+  src/generated/graphql.tsx: # Adjust the output path as needed
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      camelCasedEnums: true

@@ -1,0 +1,66 @@
+[
+    {
+      "value": "F",
+      "name": "Vindhraði (m/s)"
+    },
+    {
+      "value": "FX",
+      "name": "Mesti vindhraði (m/s)"
+    },
+    {
+      "value": "FG",
+      "name": "Mesta vindhviða (m/s)"
+    },
+    {
+      "value": "D",
+      "name": "Vindstefna"
+    },
+    {
+      "value": "T",
+      "name": "Hiti (°C)"
+    },
+    {
+      "value": "W",
+      "name": "Veðurlýsing"
+    },
+    {
+      "value": "V",
+      "name": "Skyggni (km)"
+    },
+    {
+      "value": "N",
+      "name": "Skýjahula (%)"
+    },
+    {
+      "value": "P",
+      "name": "Loftþrýstingur (hPa)"
+    },
+    {
+      "value": "RH",
+      "name": "Rakastig (%)"
+    },
+    {
+      "value": "SNC",
+      "name": "Lýsing á snjó"
+    },
+    {
+      "value": "SND",
+      "name": "Snjódýpt (cm)"
+    },
+    {
+      "value": "SED",
+      "name": "Sjólag"
+    },
+    {
+      "value": "RTE",
+      "name": "Vegahiti (°C)"
+    },
+    {
+      "value": "TD",
+      "name": "Daggarmark (°C)"
+    },
+    {
+      "value": "R",
+      "name": "Uppsöfnuð úrkoma (mm / klst) úr sjálfvirkum mælum"
+    }
+]
