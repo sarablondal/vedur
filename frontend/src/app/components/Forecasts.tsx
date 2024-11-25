@@ -3,6 +3,8 @@ import { Button, Typography, Card, Select, FormControl, InputLabel, Box, Chip, S
 import Grid from '@mui/material/Grid2';
 import { useLazyQuery } from '@apollo/client';
 import { GET_FORECASTS } from '../graphql/queries/getForecasts';
+import { format } from 'date-fns';
+import { is } from 'date-fns/locale';
 
 // Define the type for weather stations and parameters
 interface WeatherStation {
@@ -20,7 +22,7 @@ interface WeatherParameters {
   lang: string;
   view: string;
   ids: string;
-  params: string;
+  params: string | null;
 }
 
 const Forecasts = () => {
@@ -39,7 +41,7 @@ const Forecasts = () => {
       lang: language,
       view: 'xml',
       ids: ids,
-      params: weatherParams,
+      params: weatherParams ? weatherParams : null,
     };
     fetchWeather({
       variables: { parameters },
@@ -169,16 +171,16 @@ const Forecasts = () => {
               {data.forecasts.map((forecast: any, index: number) => (
                 <div key={index}>
                   <h3>{forecast.stationName}</h3>
-                  <p>Generated at: {forecast.generatedAt}</p>
-                  <p>Link: {forecast.link}</p>
+                  <p>Sótt: {forecast.generatedAt}</p>
+                  {forecast.link && <p><a href={forecast.link}>Hlekkur: {forecast.link}</a></p>}
                   <div>
                     {forecast.forecastDetails.map((detail: any, idx: number) => (
                       <div key={idx}>
-                        <p>Time: {detail.forecastTime}</p>
-                        <p>Temperature: {detail.temperature}</p>
-                        <p>Wind Direction: {detail.windDirection}</p>
-                        <p>Wind Speed: {detail.windSpeed}</p>
-                        <p>Description: {detail.weatherDescription}</p>
+                        <p>Tími: {format(new Date(detail.forecastTime), 'PPPPpp', { locale: is })}</p>
+                        <p>Hitastig: {detail.temperature}</p>
+                        <p>Vindátt: {detail.windDirection}</p>
+                        <p>Vindhraði: {detail.windSpeed}</p>
+                        <p>Lýsing: {detail.weatherDescription}</p>
                       </div>
                     ))}
                   </div>
