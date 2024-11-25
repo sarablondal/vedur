@@ -241,7 +241,6 @@ const Forecasts = () => {
                   {forecast.forecastDetails.map((detail: any, idx: number) => (
                     <List key={idx}>
                       <ListItemText
-                        inset
                         primary={format(
                           new Date(detail.forecastTime),
                           'PPPPp',

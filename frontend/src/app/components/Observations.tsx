@@ -214,13 +214,13 @@ const Observations = () => {
               <List subheader={<ListSubheader>Veðurathuganir</ListSubheader>}>
                 <ListItemText  primary={observation.stationName} secondary={observation.stationId} />
                 <ListItemText
-                  primary={`Tími athugunar ${format(
+                  primary={format(
                     new Date(observation.observationTime),
                     'PPPPp',
                     {
                       locale: is,
                     }
-                  )}`}
+                  )}
                 />
                 {observation.temperature !== 0 && (
                   <ListItemText

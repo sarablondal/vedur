@@ -6,7 +6,9 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "generate": "graphql-codegen"
+    "generate": "graphql-codegen",
+    "start-backend": "cd ../backend/WeatherApp && dotnet run",
+    "start-all": "yarn && yarn generate && yarn start"
   },
   "private": true,
   "dependencies": {
@@ -54,6 +56,7 @@
     "@types/styled-components": "5.1.26",
     "babel-jest": "^29.7.0",
     "babel-plugin-styled-components": "1.10.7",
+    "concurrently": "^9.1.0",
     "cypress": "^13.13.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.0.0",
@@ -72,6 +75,7 @@
     "tslib": "^2.3.0",
     "typescript": "~5.5.2",
     "typescript-eslint": "^8.0.0",
+    "wait-on": "^8.0.1",
     "webpack-cli": "^5.1.4"
   },
   "nx": {
