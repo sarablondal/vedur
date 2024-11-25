@@ -171,12 +171,12 @@ const Observations = () => {
                         <div>
                             {/* Bæta við tjékkum hvort params séu að breytast og þá ekki birta þá dálka */}
                             {data.observations.map((observation: any, index: number) => (
-                                <div key={index}>
+                                <div key={index} style={{ marginBottom: '16px', borderBottom: '1px solid #ccc', paddingBottom: '8px' }}>
                                     <h3>{observation.stationName}</h3>
                                     <p>Stöðvanúmer: {observation.stationId}</p>
-                                    <p>Tími athugunar: {format(new Date(observation.observationTime), 'PPPPpppp', { locale: is })}</p>
+                                    <p>Tími athugunar: {format(new Date(observation.observationTime), 'PPPPp', { locale: is })}</p>
                                     {observation.temperature && <p>Hitastig: {observation.temperature}°C</p>}
-                                    {observation.windSpeed && <p>Vindhraði: {observation.windSpeed}(m/s)</p> }
+                                    {observation.windSpeed !== 0 && <p>Vindhraði: {observation.windSpeed}(m/s)</p> }
                                     {observation.windDirection && <p>Vindstefna: {observation.windDirection}</p>}
                                     {observation.link && <p><a href={observation.link}>Slóð</a></p>}
                                 </div>

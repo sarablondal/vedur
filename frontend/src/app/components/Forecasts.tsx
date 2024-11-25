@@ -5,6 +5,7 @@ import { useLazyQuery } from '@apollo/client';
 import { GET_FORECASTS } from '../graphql/queries/getForecasts';
 import { format } from 'date-fns';
 import { is } from 'date-fns/locale';
+import './Forecasts.css';
 
 // Define the type for weather stations and parameters
 interface WeatherStation {
@@ -169,20 +170,22 @@ const Forecasts = () => {
           <Box sx={{ mt: 2 }}>
             <div>
               {data.forecasts.map((forecast: any, index: number) => (
-                <div key={index}>
+                <div key={index} className="forecast-container">
                   <h3>{forecast.stationName}</h3>
-                  <p>Sótt: {forecast.generatedAt}</p>
-                  {forecast.link && <p><a href={forecast.link}>Hlekkur: {forecast.link}</a></p>}
+                  <p>Sótt: {format(new Date(forecast.generatedAt), 'PPPPp', { locale: is })}</p>
+                  {forecast.link && <p><a href={forecast.link}>Hlekkur</a></p>}
                   <div>
+                    <div className="forecast-details">
                     {forecast.forecastDetails.map((detail: any, idx: number) => (
-                      <div key={idx}>
-                        <p>Tími: {format(new Date(detail.forecastTime), 'PPPPpp', { locale: is })}</p>
-                        <p>Hitastig: {detail.temperature}</p>
-                        <p>Vindátt: {detail.windDirection}</p>
-                        <p>Vindhraði: {detail.windSpeed}</p>
-                        <p>Lýsing: {detail.weatherDescription}</p>
+                      <div key={idx} className="forecast-detail">
+                        <p>Tími veðurspáar: {format(new Date(detail.forecastTime), 'PPPPp', { locale: is })}</p>
+                        {detail.temperature !== 0 && <p>Hitastig: {detail.temperature}°C</p>}
+                        {detail.windDirection && <p>Vindstefna: {detail.windDirection}</p>}
+                        {detail.windSpeed !== 0 && <p>Vindhraði: {detail.windSpeed}(m/s)</p>}
+                        {detail.weatherDescription && <p>Lýsing: {detail.weatherDescription}</p>}
                       </div>
                     ))}
+                    </div>
                   </div>
                 </div>
               ))}
