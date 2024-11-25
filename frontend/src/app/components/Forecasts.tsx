@@ -18,6 +18,7 @@ import {
   Collapse,
   ListItemText,
   ListItemButton,
+  Divider,
 } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { useLazyQuery } from '@apollo/client';
@@ -240,32 +241,34 @@ const Forecasts = () => {
                   {forecast.forecastDetails.map((detail: any, idx: number) => (
                     <List key={idx}>
                       <ListItemText
-                        primary={`Tími veðurspár: ${format(
+
+                        primary={format(
                           new Date(detail.forecastTime),
                           'PPPPp',
                           { locale: is }
-                        )}`}
+                        )}
                       />
                       {detail.temperature !== 0 && (
                         <ListItemText
-                          primary={`Hitastig: ${detail.temperature}°C`}
+                          secondary={`Hitastig: ${detail.temperature}°C`}
                         />
                       )}
                       {detail.windDirection && (
                         <ListItemText
-                          primary={`Vindstefna: ${detail.windDirection}`}
+                          secondary={`Vindstefna: ${detail.windDirection}`}
                         />
                       )}
                       {detail.windSpeed !== 0 && (
                         <ListItemText
-                          primary={`Vindhraði:${detail.windSpeed}(m/s)`}
+                          secondary={`Vindhraði:${detail.windSpeed}(m/s)`}
                         />
                       )}
                       {detail.weatherDescription && (
                         <ListItemText
-                          primary={`Lýsing: ${detail.weatherDescription}`}
+                          secondary={`Lýsing: ${detail.weatherDescription}`}
                         />
                       )}
+                      <Divider />
                     </List>
                   ))}
                 </Collapse>
