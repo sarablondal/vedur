@@ -241,7 +241,7 @@ const Forecasts = () => {
                   {forecast.forecastDetails.map((detail: any, idx: number) => (
                     <List key={idx}>
                       <ListItemText
-
+                        inset
                         primary={format(
                           new Date(detail.forecastTime),
                           'PPPPp',
@@ -250,21 +250,25 @@ const Forecasts = () => {
                       />
                       {detail.temperature !== 0 && (
                         <ListItemText
+                          inset
                           secondary={`Hitastig: ${detail.temperature}°C`}
                         />
                       )}
                       {detail.windDirection && (
                         <ListItemText
+                          inset
                           secondary={`Vindstefna: ${detail.windDirection}`}
                         />
                       )}
                       {detail.windSpeed !== 0 && (
                         <ListItemText
+                          inset
                           secondary={`Vindhraði:${detail.windSpeed}(m/s)`}
                         />
                       )}
                       {detail.weatherDescription && (
                         <ListItemText
+                          inset
                           secondary={`Lýsing: ${detail.weatherDescription}`}
                         />
                       )}

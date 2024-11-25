@@ -17,7 +17,13 @@ public class WeatherService : IWeatherService
         var response = await _httpClient.GetStringAsync($"?op_w=xml&{query}");
         var xml = XDocument.Parse(response);
 
-        return xml.Descendants("station").Select(station => new Observation
+        var stations = xml.Descendants("station");
+        if (!stations.Any())
+        {
+            return new List<Observation>();
+        }
+
+        return stations.Select(station => new Observation
         {
             StationId = station.Attribute("id")?.Value ?? string.Empty,
             StationName = station.Element("name")?.Value,
@@ -35,7 +41,13 @@ public class WeatherService : IWeatherService
         var response = await _httpClient.GetStringAsync($"?op_w=xml&{query}");
         var xml = XDocument.Parse(response);
 
-        return xml.Descendants("station").Select(station => new Forecast
+        var stations = xml.Descendants("station");
+        if (!stations.Any())
+        {
+            return new List<Forecast>();
+        }
+
+        return stations.Select(station => new Forecast
         {
             StationId = station.Attribute("id")?.Value ?? string.Empty,
             StationName = station.Element("name")?.Value,
