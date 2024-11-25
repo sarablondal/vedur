@@ -112,3 +112,4 @@ Thumbs.db
 /backend/.vs
 /backend/WeatherApp/bin
 *.cache
+/frontend/.nx
