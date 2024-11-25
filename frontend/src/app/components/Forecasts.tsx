@@ -1,11 +1,32 @@
 import { useState, useEffect } from 'react';
-import { Button, Typography, Card, Select, FormControl, InputLabel, Box, Chip, SelectChangeEvent, MenuItem, OutlinedInput, IconButton, CircularProgress, Paper, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import {
+  Button,
+  Typography,
+  Card,
+  Select,
+  FormControl,
+  InputLabel,
+  Box,
+  Chip,
+  SelectChangeEvent,
+  MenuItem,
+  OutlinedInput,
+  CircularProgress,
+  ToggleButton,
+  ToggleButtonGroup,
+  List,
+  Collapse,
+  ListItemText,
+  ListItemButton,
+} from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { useLazyQuery } from '@apollo/client';
 import { GET_FORECASTS } from '../graphql/queries/getForecasts';
 import { format } from 'date-fns';
 import { is } from 'date-fns/locale';
-import './Forecasts.css';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import React from 'react';
 
 // Define the type for weather stations and parameters
 interface WeatherStation {
@@ -33,6 +54,11 @@ const Forecasts = () => {
   const [weatherParams, setWeatherParams] = useState<WeatherValues[]>([]);
   const [weatherStations, setWeatherStations] = useState<WeatherStation[]>([]);
   const [fetchWeather, { data, loading, error }] = useLazyQuery(GET_FORECASTS);
+  const [open, setOpen] = React.useState(true);
+
+  const handleListClick = () => {
+    setOpen(!open);
+  };
 
   const handleFetchWeather = () => {
     const ids = locations.join(';');
@@ -63,7 +89,10 @@ const Forecasts = () => {
     setParams(typeof value === 'string' ? value.split(';') : value);
   };
 
-  const handleLanguageChange = (event: React.MouseEvent<HTMLElement>, newLanguage: string) => {
+  const handleLanguageChange = (
+    event: React.MouseEvent<HTMLElement>,
+    newLanguage: string
+  ) => {
     if (newLanguage !== null) {
       setLanguage(newLanguage);
     }
@@ -74,7 +103,9 @@ const Forecasts = () => {
     fetch('/stations.json')
       .then((response) => response.json())
       .then((data) => setWeatherStations(data))
-      .catch((error) => console.error('Error fetching weather stations:', error));
+      .catch((error) =>
+        console.error('Error fetching weather stations:', error)
+      );
   }, []);
 
   // Fetch params for the weather query
@@ -82,7 +113,9 @@ const Forecasts = () => {
     fetch('/params.json')
       .then((response) => response.json())
       .then((data) => setWeatherParams(data))
-      .catch((error) => console.error('Error fetching weather parameters:', error));
+      .catch((error) =>
+        console.error('Error fetching weather parameters:', error)
+      );
   }, []);
 
   return (
@@ -115,7 +148,13 @@ const Forecasts = () => {
             renderValue={(selected) => (
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                 {selected.map((value) => (
-                  <Chip key={value} label={weatherStations.find((station) => station.value === value)?.name || value} />
+                  <Chip
+                    key={value}
+                    label={
+                      weatherStations.find((station) => station.value === value)
+                        ?.name || value
+                    }
+                  />
                 ))}
               </Box>
             )}
@@ -140,7 +179,13 @@ const Forecasts = () => {
             renderValue={(selected) => (
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                 {selected.map((value) => (
-                  <Chip key={value} label={weatherParams.find((param) => param.value === value)?.name || value} />
+                  <Chip
+                    key={value}
+                    label={
+                      weatherParams.find((param) => param.value === value)
+                        ?.name || value
+                    }
+                  />
                 ))}
               </Box>
             )}
@@ -165,31 +210,61 @@ const Forecasts = () => {
             <Typography variant="body1">Hleður...</Typography>
           </>
         )}
-        {error && <Typography variant="body1" color="error">Error: {error.message}</Typography>}
+        {error && (
+          <Typography variant="body1" color="error">
+            Error: {error.message}
+          </Typography>
+        )}
         {data && data.forecasts && (
           <Box sx={{ mt: 2 }}>
-            <div>
-              {data.forecasts.map((forecast: any, index: number) => (
-                <div key={index} className="forecast-container">
-                  <h3>{forecast.stationName}</h3>
-                  <p>Sótt: {format(new Date(forecast.generatedAt), 'PPPPp', { locale: is })}</p>
-                  {forecast.link && <p><a href={forecast.link}>Hlekkur</a></p>}
-                  <div>
-                    <div className="forecast-details">
-                    {forecast.forecastDetails.map((detail: any, idx: number) => (
-                      <div key={idx} className="forecast-detail">
-                        <p>Tími veðurspáar: {format(new Date(detail.forecastTime), 'PPPPp', { locale: is })}</p>
-                        {detail.temperature !== 0 && <p>Hitastig: {detail.temperature}°C</p>}
-                        {detail.windDirection && <p>Vindstefna: {detail.windDirection}</p>}
-                        {detail.windSpeed !== 0 && <p>Vindhraði: {detail.windSpeed}(m/s)</p>}
-                        {detail.weatherDescription && <p>Lýsing: {detail.weatherDescription}</p>}
-                      </div>
-                    ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {data.forecasts.map((forecast: any, index: number) => (
+              <List>
+                <ListItemButton onClick={handleListClick}>
+                  <ListItemText
+                    primary={forecast.stationName}
+                    secondary={`Sótt: ${format(
+                      new Date(forecast.generatedAt),
+                      'PPPPp',
+                      { locale: is }
+                    )}`}
+                  />
+                  {open ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+                <Collapse in={open} timeout="auto" unmountOnExit>
+                  {forecast.forecastDetails.map((detail: any, idx: number) => (
+                    <List>
+                      <ListItemText
+                        primary={`Tími veðurspár: ${format(
+                          new Date(detail.forecastTime),
+                          'PPPPp',
+                          { locale: is }
+                        )}`}
+                      />
+                      {detail.temperature !== 0 && (
+                        <ListItemText
+                          primary={`Hitastig: ${detail.temperature}°C`}
+                        />
+                      )}
+                      {detail.windDirection && (
+                        <ListItemText
+                          primary={`Vindstefna: ${detail.windDirection}`}
+                        />
+                      )}
+                      {detail.windSpeed !== 0 && (
+                        <ListItemText
+                          primary={`Vindhraði:${detail.windSpeed}(m/s)`}
+                        />
+                      )}
+                      {detail.weatherDescription && (
+                        <ListItemText
+                          primary={`Lýsing: ${detail.weatherDescription}`}
+                        />
+                      )}
+                    </List>
+                  ))}
+                </Collapse>
+              </List>
+            ))}
           </Box>
         )}
       </Box>
