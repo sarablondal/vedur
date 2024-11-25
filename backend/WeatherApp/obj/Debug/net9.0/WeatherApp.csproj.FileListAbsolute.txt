@@ -89,9 +89,7 @@ C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.dll
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.Abstractions.dll
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.AspNetCore.dll
-C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.AspNetCore.Abstractions.dll
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.AspNetCore.Authorization.dll
-C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.AspNetCore.Playground.dll
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.Authorization.dll
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.CostAnalysis.dll
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.Execution.dll
@@ -108,7 +106,6 @@ C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.Pagination.Mappings.dll
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.Pagination.Primitives.dll
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.Primitives.dll
-C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.Server.dll
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.Subscriptions.dll
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.Subscriptions.InMemory.dll
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\bin\Debug\net9.0\HotChocolate.Transport.Sockets.dll
@@ -154,3 +151,4 @@ C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\obj\Debug\
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\obj\Debug\net9.0\WeatherApp.pdb
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\obj\Debug\net9.0\WeatherApp.genruntimeconfig.cache
 C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\obj\Debug\net9.0\ref\WeatherApp.dll
+C:\Users\Lenovo\Desktop\Verkefni\vedur\vedur\vedur\backend\WeatherApp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

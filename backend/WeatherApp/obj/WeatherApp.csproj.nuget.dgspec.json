@@ -58,10 +58,6 @@
               "target": "Package",
               "version": "[14.1.0, )"
             },
-            "HotChocolate.AspNetCore.Playground": {
-              "target": "Package",
-              "version": "[10.5.5, )"
-            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.0, )"

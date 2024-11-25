@@ -46,8 +46,68 @@
           "hash": "3516381501909661267"
         },
         {
-          "file": ".gitignore",
-          "hash": "17107242987988535020"
+          "file": ".nx/cache/cloud/2411.21.7/index.js",
+          "hash": "15708547227541686279"
+        },
+        {
+          "file": ".nx/cache/cloud/2411.21.7/lib/daemon/process-run-end.js",
+          "hash": "8224359467218610509"
+        },
+        {
+          "file": ".nx/cache/cloud/2411.21.7/lib/heartbeat/heartbeat-process.js",
+          "hash": "6422396341745781387"
+        },
+        {
+          "file": ".nx/cache/cloud/2411.21.7/static/login-end.html",
+          "hash": "7227742377832893506"
+        },
+        {
+          "file": ".nx/cache/cloud/2411.21.7/static/login-start.html",
+          "hash": "4217172551631503077"
+        },
+        {
+          "file": ".nx/workspace-data/2a63da27-ed9e-402c-862a-f3ba3698c0c5.db-wal",
+          "hash": "15482565842591709037"
+        },
+        {
+          "file": ".nx/workspace-data/cypress-8161926102631362384.hash",
+          "hash": "15548751398198735379"
+        },
+        {
+          "file": ".nx/workspace-data/eslint-4393011795395336301.hash",
+          "hash": "18159966842632034804"
+        },
+        {
+          "file": ".nx/workspace-data/file-map.json",
+          "hash": "10568691065579466310"
+        },
+        {
+          "file": ".nx/workspace-data/file-map.json~864d8f45",
+          "hash": "6086006546360012156"
+        },
+        {
+          "file": ".nx/workspace-data/jest-7930610538513362720.hash",
+          "hash": "11508888306788141125"
+        },
+        {
+          "file": ".nx/workspace-data/parsed-lock-file.json",
+          "hash": "8638644495040994232"
+        },
+        {
+          "file": ".nx/workspace-data/project-graph.json",
+          "hash": "2698296883166797310"
+        },
+        {
+          "file": ".nx/workspace-data/project-graph.json~05482d9a",
+          "hash": "2698296883166797310"
+        },
+        {
+          "file": ".nx/workspace-data/project-graph.json~26494645",
+          "hash": "2698296883166797310"
+        },
+        {
+          "file": ".nx/workspace-data/webpack-17957109288680152952.hash",
+          "hash": "3499471733153193007"
         },
         {
           "file": ".prettierignore",
@@ -58,12 +118,12 @@
           "hash": "16267754514737964994"
         },
         {
-          "file": ".vscode/extensions.json",
-          "hash": "4637156562308165301"
-        },
-        {
           "file": "README.md",
           "hash": "2169886003014164902"
+        },
+        {
+          "file": "codegen.yml",
+          "hash": "4978095077683231032"
         },
         {
           "file": "eslint.config.js",
@@ -84,12 +144,32 @@
           ]
         },
         {
+          "file": "node_modules/.cache/babel-loader/55df6e58079d0223cc1dc43b173d2b4596662dd89d41966123bae86ee6fb76fa.json",
+          "hash": "5725106046386019932"
+        },
+        {
+          "file": "node_modules/.cache/babel-loader/80ac1eb7626ec3d311aeb9ea388ba0247c8b11d9872b0518d7ab4b5147fd2df8.json",
+          "hash": "3139167278024183160"
+        },
+        {
+          "file": "node_modules/.cache/babel-loader/aa0fd779694328a0e44928aa5265c026c064163b4ccb6ffe19dcc8557c991cf7.json",
+          "hash": "4277869477586072196"
+        },
+        {
+          "file": "node_modules/.cache/babel-loader/c789f6a3f0ac19434b3ec9296120eefa6a89ecd5f8347f5cca9704dee6156af9.json",
+          "hash": "6378451937182326601"
+        },
+        {
+          "file": "node_modules/.cache/babel-loader/cd185be752bd75a23bb2b663cd6d1e5aa6798a3975f1c62b68e356af5b916332.json",
+          "hash": "11591518143285436875"
+        },
+        {
           "file": "nx.json",
           "hash": "16452554568689899598"
         },
         {
           "file": "package.json",
-          "hash": "10014771370767813637",
+          "hash": "11964200307712754969",
           "deps": [
             "npm:@babel/core",
             "npm:@babel/preset-react",
@@ -140,6 +220,10 @@
             "npm:@apollo/client",
             "npm:@emotion/react",
             "npm:@emotion/styled",
+            "npm:@graphql-codegen/cli",
+            "npm:@graphql-codegen/typescript",
+            "npm:@graphql-codegen/typescript-operations",
+            "npm:@graphql-codegen/typescript-react-apollo",
             "npm:@mui/material",
             "npm:graphql",
             "npm:react",
@@ -151,14 +235,6 @@
         {
           "file": "project.json",
           "hash": "2981724191001094842"
-        },
-        {
-          "file": "public/params.json",
-          "hash": "17932635561699774769"
-        },
-        {
-          "file": "public/stations.json",
-          "hash": "11810899679335948887"
         },
         {
           "file": "src/app/apollo/client.tsx",
@@ -184,7 +260,16 @@
         },
         {
           "file": "src/app/components/Forecasts.tsx",
-          "hash": "17125199864366602516",
+          "hash": "7650641353884676371",
+          "deps": [
+            "npm:react",
+            "npm:@mui/material",
+            "npm:@apollo/client"
+          ]
+        },
+        {
+          "file": "src/app/components/Observations.tsx",
+          "hash": "10434648590425364540",
           "deps": [
             "npm:react",
             "npm:@mui/material",
@@ -207,19 +292,15 @@
           ]
         },
         {
-          "file": "src/app/graphql/inputs/forecasts.input.ts",
-          "hash": "3244421341483603138"
-        },
-        {
           "file": "src/app/graphql/queries/getForecasts.ts",
-          "hash": "10722834506564290033",
+          "hash": "13265137957097501951",
           "deps": [
             "npm:@apollo/client"
           ]
         },
         {
           "file": "src/app/graphql/queries/getObservations.ts",
-          "hash": "16572518132055445980",
+          "hash": "5843004080595083980",
           "deps": [
             "npm:@apollo/client"
           ]
@@ -231,6 +312,13 @@
         {
           "file": "src/favicon.ico",
           "hash": "9303420814833116677"
+        },
+        {
+          "file": "src/generated/graphql.tsx",
+          "hash": "1956931200975942210",
+          "deps": [
+            "npm:@apollo/client"
+          ]
         },
         {
           "file": "src/index.html",
@@ -266,7 +354,7 @@
         },
         {
           "file": "yarn.lock",
-          "hash": "15293286486111186145"
+          "hash": "10820663165437937483"
         }
       ],
       "e2e": [

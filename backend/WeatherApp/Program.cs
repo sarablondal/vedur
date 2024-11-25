@@ -69,7 +69,4 @@ app.MapControllers();
 app.MapGraphQL(); // Map GraphQL endpoint
 app.MapHealthChecks("/health");
 
-// Use Banana Cake Pop for testing
-app.UsePlayground("/graphql");
-
 app.Run();

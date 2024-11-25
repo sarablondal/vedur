@@ -6,16 +6,66 @@
     "version": "v1"
   },
   "paths": {
-    "/api/weather/observations": {
+    "/api/weather/forecasts": {
       "get": {
         "tags": [
           "Weather"
         ],
         "parameters": [
           {
-            "name": "url",
+            "name": "Type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "pattern": "obs|forec",
+              "type": "string"
+            }
+          },
+          {
+            "name": "Lang",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "pattern": "is|en",
+              "type": "string"
+            }
+          },
+          {
+            "name": "View",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "pattern": "xml|rss|csv",
+              "type": "string"
+            }
+          },
+          {
+            "name": "Ids",
             "in": "query",
             "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Params",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Time",
+            "in": "query",
+            "schema": {
+              "pattern": "1h|3h|6h",
+              "type": "string"
+            }
+          },
+          {
+            "name": "Anytime",
+            "in": "query",
+            "schema": {
+              "pattern": "0|1",
               "type": "string"
             }
           }
@@ -27,16 +77,66 @@
         }
       }
     },
-    "/api/weather/forecasts": {
+    "/api/weather/observations": {
       "get": {
         "tags": [
           "Weather"
         ],
         "parameters": [
           {
-            "name": "url",
+            "name": "Type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "pattern": "obs|forec",
+              "type": "string"
+            }
+          },
+          {
+            "name": "Lang",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "pattern": "is|en",
+              "type": "string"
+            }
+          },
+          {
+            "name": "View",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "pattern": "xml|rss|csv",
+              "type": "string"
+            }
+          },
+          {
+            "name": "Ids",
             "in": "query",
             "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Params",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Time",
+            "in": "query",
+            "schema": {
+              "pattern": "1h|3h|6h",
+              "type": "string"
+            }
+          },
+          {
+            "name": "Anytime",
+            "in": "query",
+            "schema": {
+              "pattern": "0|1",
               "type": "string"
             }
           }

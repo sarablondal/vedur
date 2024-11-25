@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button, Typography, Card, Select, FormControl, InputLabel, Box, Chip, SelectChangeEvent, MenuItem, OutlinedInput, IconButton, CircularProgress, Paper, ToggleButton, ToggleButtonGroup } from '@mui/material';
-import Grid from '@mui/material/Grid2'
+import Grid from '@mui/material/Grid2';
 import { useLazyQuery } from '@apollo/client';
 import { GET_FORECASTS } from '../graphql/queries/getForecasts';
 
@@ -40,7 +40,7 @@ const Forecasts = () => {
       view: 'xml',
       ids: ids,
       params: weatherParams,
-    }
+    };
     fetchWeather({
       variables: { parameters },
     });
@@ -65,130 +65,128 @@ const Forecasts = () => {
       setLanguage(newLanguage);
     }
   };
-  
+
   // Fetch weather stations from the JSON file
   useEffect(() => {
     fetch('/stations.json')
-      .then(response => response.json())
-      .then(data => setWeatherStations(data))
-      .catch(error => console.error('Error fetching weather stations:', error));
+      .then((response) => response.json())
+      .then((data) => setWeatherStations(data))
+      .catch((error) => console.error('Error fetching weather stations:', error));
   }, []);
 
   // Fetch params for the weather query
   useEffect(() => {
     fetch('/params.json')
-      .then(response => response.json())
-      .then(data => setWeatherParams(data))
-      .catch(error => console.error('Error fetching weather parameters:', error));
+      .then((response) => response.json())
+      .then((data) => setWeatherParams(data))
+      .catch((error) => console.error('Error fetching weather parameters:', error));
   }, []);
 
   return (
     <Card sx={{ p: 2 }}>
       <Typography variant="h4">Sjálfvirkar veðurspár</Typography>
-      <Grid container py={2} >
-
-      <Box sx={{ mb: 2 }}>
-        <ToggleButtonGroup
-          value={language}
-          exclusive
-          onChange={handleLanguageChange}
-          aria-label="language selection"
-        >
-          <ToggleButton value="is" aria-label="Icelandic">
-            IS
-          </ToggleButton>
-          <ToggleButton value="en" aria-label="English">
-            EN
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </Box>
-      <FormControl fullWidth>
-        <InputLabel id="location-label">Velja stöðvanúmer *</InputLabel>
-        <Select
-          labelId="location-label"
-          multiple
-          value={locations}
-          onChange={handleLocationChange}
-          input={<OutlinedInput label="Velja stöðvanúmer" />}
-          renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={weatherStations.find(station => station.value === value)?.name || value} />
+      <Grid container py={2}>
+        <Box sx={{ mb: 2 }}>
+          <ToggleButtonGroup
+            value={language}
+            exclusive
+            onChange={handleLanguageChange}
+            aria-label="language selection"
+          >
+            <ToggleButton value="is" aria-label="Icelandic">
+              IS
+            </ToggleButton>
+            <ToggleButton value="en" aria-label="English">
+              EN
+            </ToggleButton>
+          </ToggleButtonGroup>
+        </Box>
+        <FormControl fullWidth>
+          <InputLabel id="location-label">Velja stöðvanúmer *</InputLabel>
+          <Select
+            labelId="location-label"
+            multiple
+            value={locations}
+            onChange={handleLocationChange}
+            input={<OutlinedInput label="Velja stöðvanúmer" />}
+            renderValue={(selected) => (
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                {selected.map((value) => (
+                  <Chip key={value} label={weatherStations.find((station) => station.value === value)?.name || value} />
+                ))}
+              </Box>
+            )}
+          >
+            {weatherStations &&
+              weatherStations.length > 0 &&
+              weatherStations.map((station) => (
+                <MenuItem key={station.value} value={station.value}>
+                  {station.name}
+                </MenuItem>
               ))}
-            </Box>
-          )}
-        >
-          {weatherStations && weatherStations.length > 0 && weatherStations.map((station) => (
-            <MenuItem key={station.value} value={station.value}>
-              {station.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl fullWidth sx={{ mt: 2 }}>
-        <InputLabel id="params-label">Velja mælistærðir</InputLabel>
-        <Select
-          labelId="params-label"
-          multiple
-          value={params}
-          onChange={handleParamChange}
-          input={<OutlinedInput label="Velja mælistærðir" />}
-          renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={weatherParams.find(param => param.value === value)?.name || value} />
+          </Select>
+        </FormControl>
+        <FormControl fullWidth sx={{ mt: 2 }}>
+          <InputLabel id="params-label">Velja mælistærðir</InputLabel>
+          <Select
+            labelId="params-label"
+            multiple
+            value={params}
+            onChange={handleParamChange}
+            input={<OutlinedInput label="Velja mælistærðir" />}
+            renderValue={(selected) => (
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                {selected.map((value) => (
+                  <Chip key={value} label={weatherParams.find((param) => param.value === value)?.name || value} />
+                ))}
+              </Box>
+            )}
+          >
+            {weatherParams &&
+              weatherParams.length > 0 &&
+              weatherParams.map((param) => (
+                <MenuItem key={param.value} value={param.value}>
+                  {param.name}
+                </MenuItem>
               ))}
-            </Box>
-          )}
-        >
-          {weatherParams && weatherParams.length > 0 && weatherParams.map((param) => (
-            <MenuItem key={param.value} value={param.value}>
-              {param.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+          </Select>
+        </FormControl>
       </Grid>
-      <Button
-        variant="contained"
-        onClick={handleFetchWeather}
-        sx={{ mt: 2 }}
-      >
+      <Button variant="contained" onClick={handleFetchWeather} sx={{ mt: 2 }}>
         Sækja sjálfvirkar veðurspár
       </Button>
       <Box>
-
-      {loading && 
-        <><CircularProgress size='3rem' /><Typography variant="body1">Hleður...</Typography></>
-      }
-      {error && <Typography variant="body1" color="error">Error: {error.message}</Typography>}
-      {data && data.forecasts && (
-        <Box sx={{ mt: 2 }}>
-     <div>
-          {data.forecasts.map((forecast: any, index: number) => (
-            <div key={index}>
-              <h3>{forecast.stationName}</h3>
-              <p>Generated at: {forecast.generatedAt}</p>
-              <p>Link: {forecast.link}</p>
-              <div>
-                {forecast.forecastDetails.map((detail: any, idx: number) => (
-                  <div key={idx}>
-                    <p>Time: {detail.forecastTime}</p>
-                    <p>Temperature: {detail.temperature}</p>
-                    <p>Wind Direction: {detail.windDirection}</p>
-                    <p>Wind Speed: {detail.windSpeed}</p>
-                    <p>Description: {detail.weatherDescription}</p>
+        {loading && (
+          <>
+            <CircularProgress size="3rem" />
+            <Typography variant="body1">Hleður...</Typography>
+          </>
+        )}
+        {error && <Typography variant="body1" color="error">Error: {error.message}</Typography>}
+        {data && data.forecasts && (
+          <Box sx={{ mt: 2 }}>
+            <div>
+              {data.forecasts.map((forecast: any, index: number) => (
+                <div key={index}>
+                  <h3>{forecast.stationName}</h3>
+                  <p>Generated at: {forecast.generatedAt}</p>
+                  <p>Link: {forecast.link}</p>
+                  <div>
+                    {forecast.forecastDetails.map((detail: any, idx: number) => (
+                      <div key={idx}>
+                        <p>Time: {detail.forecastTime}</p>
+                        <p>Temperature: {detail.temperature}</p>
+                        <p>Wind Direction: {detail.windDirection}</p>
+                        <p>Wind Speed: {detail.windSpeed}</p>
+                        <p>Description: {detail.weatherDescription}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-
-          {/* <Typography variant="h5">{data.getForecasts.temperature}°C</Typography>
-          <Typography variant="body1">{data.getForecasts.description}</Typography> */}
-        </Box>
-      )}
+          </Box>
+        )}
       </Box>
     </Card>
   );

@@ -8,7 +8,37 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "url",
+        "Name": "Type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lang",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "View",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Ids",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Params",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Time",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Anytime",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -24,7 +54,37 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "url",
+        "Name": "Type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lang",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "View",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Ids",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Params",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Time",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Anytime",
         "Type": "System.String",
         "IsRequired": false
       }
