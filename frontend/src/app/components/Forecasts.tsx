@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Button,
   Typography,
@@ -26,9 +26,7 @@ import { format } from 'date-fns';
 import { is } from 'date-fns/locale';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import React from 'react';
 
-// Define the type for weather stations and parameters
 interface WeatherStation {
   name: string;
   value: string;
@@ -54,10 +52,14 @@ const Forecasts = () => {
   const [weatherParams, setWeatherParams] = useState<WeatherValues[]>([]);
   const [weatherStations, setWeatherStations] = useState<WeatherStation[]>([]);
   const [fetchWeather, { data, loading, error }] = useLazyQuery(GET_FORECASTS);
-  const [open, setOpen] = React.useState(true);
+  const [openItems, setOpenItems] = useState<boolean[]>([]);
 
-  const handleListClick = () => {
-    setOpen(!open);
+  const handleListClick = (index: number) => {
+    setOpenItems((prevOpenItems) => {
+      const newOpenItems = [...prevOpenItems];
+      newOpenItems[index] = !newOpenItems[index];
+      return newOpenItems;
+    });
   };
 
   const handleFetchWeather = () => {
@@ -98,7 +100,6 @@ const Forecasts = () => {
     }
   };
 
-  // Fetch weather stations from the JSON file
   useEffect(() => {
     fetch('/stations.json')
       .then((response) => response.json())
@@ -108,7 +109,6 @@ const Forecasts = () => {
       );
   }, []);
 
-  // Fetch params for the weather query
   useEffect(() => {
     fetch('/params.json')
       .then((response) => response.json())
@@ -117,6 +117,12 @@ const Forecasts = () => {
         console.error('Error fetching weather parameters:', error)
       );
   }, []);
+
+  useEffect(() => {
+    if (data && data.forecasts) {
+      setOpenItems(new Array(data.forecasts.length).fill(false));
+    }
+  }, [data]);
 
   return (
     <Card sx={{ p: 2 }}>
@@ -218,8 +224,8 @@ const Forecasts = () => {
         {data && data.forecasts && (
           <Box sx={{ mt: 2 }}>
             {data.forecasts.map((forecast: any, index: number) => (
-              <List>
-                <ListItemButton onClick={handleListClick}>
+              <List key={index}>
+                <ListItemButton onClick={() => handleListClick(index)}>
                   <ListItemText
                     primary={forecast.stationName}
                     secondary={`Sótt: ${format(
@@ -228,11 +234,11 @@ const Forecasts = () => {
                       { locale: is }
                     )}`}
                   />
-                  {open ? <ExpandLess /> : <ExpandMore />}
+                  {openItems[index] ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
-                <Collapse in={open} timeout="auto" unmountOnExit>
+                <Collapse in={openItems[index]} timeout="auto" unmountOnExit>
                   {forecast.forecastDetails.map((detail: any, idx: number) => (
-                    <List>
+                    <List key={idx}>
                       <ListItemText
                         primary={`Tími veðurspár: ${format(
                           new Date(detail.forecastTime),
