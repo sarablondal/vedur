@@ -17,21 +17,15 @@ public class WeatherService : IWeatherService
         var response = await _httpClient.GetStringAsync($"?op_w=xml&{query}");
         var xml = XDocument.Parse(response);
 
-        var stations = xml.Descendants("station");
-        if (!stations.Any())
-        {
-            return new List<Observation>();
-        }
-
-        return stations.Select(station => new Observation
+        return xml.Descendants("station").Select(station => new Observation
         {
             StationId = station.Attribute("id")?.Value ?? string.Empty,
-            StationName = station.Element("name")?.Value,
+            StationName = station.Element("name")?.Value ?? string.Empty,
             ObservationTime = DateTime.TryParse(station.Element("time")?.Value, out var observationTime) ? observationTime : DateTime.MinValue,
-            Temperature = double.Parse(station.Element("T")?.Value ?? "0"),
-            WindDirection = station.Element("D")?.Value,
-            WindSpeed = int.Parse(station.Element("F")?.Value ?? "0"),
-            Link = station.Element("link")?.Value
+            Temperature = double.TryParse(station.Element("T")?.Value, out var temperature) ? temperature : 0,
+            WindDirection = station.Element("D")?.Value ?? string.Empty,
+            WindSpeed = int.TryParse(station.Element("F")?.Value, out var windSpeed) ? windSpeed : 0,
+            Link = station.Element("link")?.Value ?? string.Empty
         }).ToList();
     }
 
@@ -41,25 +35,19 @@ public class WeatherService : IWeatherService
         var response = await _httpClient.GetStringAsync($"?op_w=xml&{query}");
         var xml = XDocument.Parse(response);
 
-        var stations = xml.Descendants("station");
-        if (!stations.Any())
-        {
-            return new List<Forecast>();
-        }
-
-        return stations.Select(station => new Forecast
+        return xml.Descendants("station").Select(station => new Forecast
         {
             StationId = station.Attribute("id")?.Value ?? string.Empty,
-            StationName = station.Element("name")?.Value,
+            StationName = station.Element("name")?.Value ?? string.Empty,
             GeneratedAt = DateTime.TryParse(station.Element("atime")?.Value, out var generatedAt) ? generatedAt : DateTime.MinValue,
-            Link = station.Element("link")?.Value,
+            Link = station.Element("link")?.Value ?? string.Empty,
             ForecastDetails = station.Descendants("forecast").Select(forecast => new ForecastDetail
             {
                 ForecastTime = DateTime.TryParse(forecast.Element("ftime")?.Value, out var forecastTime) ? forecastTime : DateTime.MinValue,
-                Temperature = double.Parse(forecast.Element("T")?.Value ?? "0"),
-                WindDirection = forecast.Element("D")?.Value,
-                WindSpeed = int.Parse(forecast.Element("F")?.Value ?? "0"),
-                WeatherDescription = forecast.Element("W")?.Value
+                Temperature = double.TryParse(forecast.Element("T")?.Value, out var temperature) ? temperature : 0,
+                WindDirection = forecast.Element("D")?.Value ?? string.Empty,
+                WindSpeed = int.TryParse(forecast.Element("F")?.Value, out var windSpeed) ? windSpeed : 0,
+                WeatherDescription = forecast.Element("W")?.Value ?? string.Empty
             }).ToList()
         }).ToList();
     }
